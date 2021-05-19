@@ -25,36 +25,162 @@
 			border-color: #ddd;
 		}
 
-		article.card {
+		article {
+			width: 324px;
+			margin: 20px;
 		}
-		article 
+
+		.font--roboto {
+			font-family: 'Roboto';
+		}
+
+		.font--gray-900 {
+			color: dimgray;
+		}
+
+		.p-5 {
+			padding: 5px;
+		}
+
+		.p-8 {
+			padding: 8px;
+		}
+
+		.text-bold {
+			font-weight: bold;
+		}
+
+		.text-light {
+			font-weight: lighter;
+		}
+
+		.bg--gray-200 {
+			background-color: lightgray;
+		}
+
+		/*article.card > header {*/
+		/*	display: flex;*/
+		/*	flex-flow: row nowrap;*/
+		/*	align-items: center;*/
+		/*}*/
+		article.card > header > div {
+			flex-flow: column nowrap;
+		}
+
+		.h-20 {
+			height: 20px;
+		}
+
+		.w-20 {
+			width: 20px;
+		}
+
+		.h-25 {
+			height: 25px;
+		}
+
+		.w-25 {
+			width: 25px;
+		}
+
+		.button {
+			padding: 10px;
+			color: black;
+		}
+
+		.bg--gray-300\/85 {
+			background-color: rgba(200, 200, 200, .85);
+		}
+
+		.button--rounded-full {
+			border-radius: 1000000px;
+		}
+
+		.w-150 {
+			width: 150px;
+		}
+
+		.clear-text {
+			text-transform: none;
+			text-decoration: none;
+			text-underline: none;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+
+		.block {
+			display: block;
+		}
+
+		.relative {
+
+		}
+
+		.flex {
+			display: flex;
+		}
+
+		.flex-column {
+			flex-flow: column nowrap;
+		}
+
+		.align-center {
+			align-items: center;
+		}
+
+		.flex-row {
+			flex-flow: row nowrap;
+		}
+
+		.justify-space-between {
+			justify-content: space-between;
+		}
+
+		.relative {
+			position: relative;
+		}
+
+		.-position-70px {
+			top: -70px;
+		}
+
+		.-position-50px {
+			top: -50px;
+		}
+
+		.m-auto {
+			margin: auto;
+		}
 	</style>
 </head>
 <body>
-<article class="card border border--2 border-rounded--2 border--gray">
-	<header>
-		<div>
-			<div>
+<article class="card border border--2 border-rounded--2 border--gray bg--gray-200">
+	<header class="flex flex-row justify-space-between align-center">
+		<div class="flex-column">
+			<div class="p-8 text-bold font--roboto">
 				Avengers: Infinity War
 			</div>
-			<div>
+			<div class="p-8 font--roboto text-light">
 				156 minutes
 			</div>
 		</div>
-		<div>
-			85% <img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/global/cf-lg.3c29eff04f2.png" alt="">
+		<div style="display:flex;flex-flow:row nowrap; align-items: center;">
+			<div class="font--roboto">85%</div>
+			<img class=" h-25 w-25" src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/global/cf-lg.3c29eff04f2.png" alt="">
 		</div>
 	</header>
 
-	<div>
+	<div style="display:block;text-align:center;">
 		<img src="https://i.ibb.co/9tLcR7s/avengers.jpg">
-		<a href="https://www.rottentomatoes.com/m/avengers_infinity_war" target="_blank">
-			Check review
-		</a>
+		<a class="block w-150 m-auto relative -position-70px clear-text font--roboto text-center button border--2 border--gray button--rounded-full bg--gray-300/85"
+		   href="https://www.rottentomatoes.com/m/avengers_infinity_war" target="_blank">Check
+			review</a>
 	</div>
-
-	<footer>
-		<p>
+	<footer class="p-5 font--roboto relative -position-50px">
+		<p class="font--gray-900">
 			An unprecedented cinematic journey ten years in the making and spanning the entire Marvel Cinematic Universe, Marvel Studios' "Avengers: Infinity War"
 			brings to the screen the ultimate, deadliest showdown of all time. The Avengers and their Super Hero allies must be willing to sacrifice all in an attempt
 			to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.
