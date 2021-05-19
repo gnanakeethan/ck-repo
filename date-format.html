@@ -5,6 +5,17 @@
 	<title>CrossKnowledge - Code challenge</title>
 </head>
 <body>
+<div>
+	<div class="js-date-format">2021-05-19T02:00:00.000Z</div>
+	<br>
+	<div class="js-date-format">2021-05-19T03:00:00.000Z</div>
+	<br>
+	<div class="js-date-format">2021-05-19T03:51:00.000Z</div>
+	<br>
+	<div class="js-date-format">2021-05-19T04:00:00.000Z</div>
+	<br>
+	<div class="js-date-format">2021-05-19T12:00:00.000Z</div>
+</div>
 <script>
 	// This will create elements for testing, DO NOT change this code
 	(() => {
@@ -12,20 +23,51 @@
 		const NOW = new Date()
 		let minutes = [0, 1, 30, 60, 6 * 60, 23 * 60, 24 * 60]
 		let dates = []
+		const originalDates = [];
+		setInterval(() => {
+			let index = 0;
+			const elements = document.getElementsByClassName('js-date-format');
+			for (const element of elements) {
+				if (originalDates[index] === undefined) {
+					originalDates[index] = element.innerHTML;
+					element.innerHTML = getDate(element.innerHTML);
+				} else {
+					element.innerHTML = getDate(originalDates[index])
+				}
+				index++;
+			}
+		}, 1000)
 
-		minutes.forEach((i) => dates.push(new Date(NOW - i * MS_PER_MINUTE)))
-
-		dates.forEach((item) => {
-			let el = document.createElement("div")
-			el.innerHTML = "Started "
-
-			let dt = document.createElement('span')
-			dt.className = 'js-date-format'
-			dt.innerHTML = item.toISOString()
-			el.appendChild(dt)
-			document.body.appendChild(el)
-		})
 	})();
+
+	function getDate(dateString) {
+		try {
+			const parsed = new Date(dateString);
+			const current = new Date();
+			let diff = (parsed - current) / 1000.0;
+			if (diff > 0) {
+				return dateString;
+			}
+			diff = Math.abs(diff);
+			const seconds = 1;
+			const minutes = 60 * seconds;
+			const hours = 60 * minutes;
+			const days = 24 * hours;
+			console.log(diff);
+			if (diff > days) {
+				return Math.floor(diff / days) + ' days ago';
+			} else if (diff > hours) {
+				return Math.floor(diff / hours) + ' hours ago';
+			} else if (diff > minutes) {
+				return Math.floor(diff / minutes) + ' minutes ago';
+			} else {
+				return Math.floor(diff) + ' seconds ago';
+			}
+		} catch (e) {
+			console.log('error occured', e)
+		}
+		return dateString;
+	}
 </script>
 </body>
 </html>
